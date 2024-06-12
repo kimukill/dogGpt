@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="/time.js"></script>
+    <script defer src="js/time.js"></script>
+    <script defer src="js/chat.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DogGPT</title>
 </head>
 <body>
-        <img class="testimg" src="https://www.lge.co.kr/brand/asset/images/xnote/guide/pop_guide/R200_UG_KOR_V01_070516_web/img/overview_windows_tour.gif">
-        
+        <div class="window">
+            <div class="top">
+                <img class="icon" src="https://media.discordapp.net/attachments/841097966873083918/1249882093517803563/asdasd.png?ex=6668eae8&is=66679968&hm=0bf700e3ef27a90629070d764c2bbcf1837244083294153a8857ade8ad65eb5d&=&format=webp&quality=lossless&width=700&height=700">
+                <p class="windowName">
+                    DogGPT
+                </p>
+            </div>
+            <div class="index">
+                <div class="inf">
+                    <div class="texts">
+                        <p>
+                            Main
+                        </p>
+                        <p>
+                            Help
+                        </p>
+                    </div>
+                </div>
+                <div class="chatting">
+                    <div class="chatfild" id="chat">
+                    </div>
+                    <div class="enter">
+                        <input type="text" id="userInput">
+                        <button onclick="sendMessage()">return</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     <footer>
         <div class="startButton">
             <div class="startGrad">
@@ -16,7 +44,7 @@
             <div class="start">
                 <img class="startLogo" src="https://media.discordapp.net/attachments/841097966873083918/1249835012581232811/-1.png?ex=6668bf0f&is=66676d8f&hm=d6accb25367667605d1d7be9a0c25ba27b322d0eb11b33039a2dad74364db352&=&format=webp&quality=lossless&width=746&height=700">
                 <p>
-                    시작
+                    start
                 </p>
             </div>
         </div>
@@ -29,6 +57,114 @@
     </footer>
 </body>
 <style>
+    .chatting{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .user, .assistant{
+        margin-left: 5px;
+        margin-right: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        /* background-color: #e1ddc7; */
+        margin-bottom: 10px;
+        max-width: 45%;
+        border: 1px solid #e1ddc7;
+    }
+    .chatfild{
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        overflow: scroll;
+    }
+    .user{
+        align-self: flex-end;
+        border-radius: 10px 0 10px 10px;
+    }
+    .assistant{
+        align-self: flex-start;
+        border-radius: 0 10px 10px 10px;
+    }
+    body{
+        height: 97vh;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+    }
+    input{
+        width: 85%;
+    }
+    button{
+        margin-left: 5px;
+    }
+    .enter{
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+    #chatIndex{
+        align-self: center;
+        width: 99%;
+        height: 100%;
+        border: none;
+    }
+    .texts > p{
+        margin-left: 10px;
+    }
+    .texts{
+        display: flex;
+    }
+    .inf{
+        display: flex;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-bottom: 1px solid #e1ddc7;
+    }
+    p{
+        margin: 0;
+    }
+    .index{
+        height: 100%;
+        background-color: #f0efe9;
+        border: 3px solid #3265d1;
+        border-top: 0px;
+        display: flex;
+        flex-direction: column;
+    }
+    .window{
+        border: 1px solid #0d4ea9;
+        border-radius: 10px 10px 0 0;
+        margin-top: 5%;
+        width: 50%;
+        height: 80vh;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.4);
+    }
+    .top{
+        background: linear-gradient(180deg, #338aff, #0155df, #0155df, #0155df, #0155df, #0155df, #06348a);
+        border-radius: 10px 10px 0 0;
+        display: flex;
+        height: 35px;
+    }
+    .icon{
+        margin-left: 10px;
+        width: 20px;
+        height: 20px;
+        align-self: center;
+    }
+    .windowName{
+        margin-left: 5px;
+        color: white;
+        font-size: 14px;
+        align-self: center;
+    }
     html{
         background-image: url("https://cdn.neowin.com/news/images/uploaded/2023/06/1686292349_windows_xp_bliss_wallpaper_4k.jpg");
         background-size: cover;
@@ -47,12 +183,6 @@
         font-size: 14px;
         align-self: center;
     }
-    .testimg{
-        margin-top: 10%;
-        width: 10%;
-        height: 10%;
-        align-self: center;
-    }
     footer{
         display: inline-flex;
         justify-content: space-between;
@@ -68,6 +198,7 @@
         align-content: center;
         height: 100vh;
         width: 100vw;
+        flex-wrap: wrap;
     }
     .start{
         display: flex;
