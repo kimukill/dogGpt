@@ -10,7 +10,7 @@
 <body>
         <div class="window">
             <div class="top">
-                <img class="icon" src="https://media.discordapp.net/attachments/841097966873083918/1249882093517803563/asdasd.png?ex=6668eae8&is=66679968&hm=0bf700e3ef27a90629070d764c2bbcf1837244083294153a8857ade8ad65eb5d&=&format=webp&quality=lossless&width=700&height=700">
+                <img class="icon" src="img/dog.png">
                 <p class="windowName">
                     DogGPT
                 </p>
@@ -42,7 +42,7 @@
             <div class="startGrad">
             </div>
             <div class="start">
-                <img class="startLogo" src="https://media.discordapp.net/attachments/841097966873083918/1249835012581232811/-1.png?ex=6668bf0f&is=66676d8f&hm=d6accb25367667605d1d7be9a0c25ba27b322d0eb11b33039a2dad74364db352&=&format=webp&quality=lossless&width=746&height=700">
+                <img class="startLogo" src="img/win.png">
                 <p>
                     start
                 </p>
@@ -84,10 +84,12 @@
     .user{
         align-self: flex-end;
         border-radius: 10px 0 10px 10px;
+        animation: slideLeft 0.3s ease-out forwards;
     }
     .assistant{
         align-self: flex-start;
         border-radius: 0 10px 10px 10px;
+        animation: slideRight 0.3s ease-out forwards;
     }
     body{
         height: 97vh;
@@ -146,6 +148,7 @@
         display: flex;
         flex-direction: column;
         box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.4);
+        animation: slideUp 0.5s ease-out forwards;
     }
     .top{
         background: linear-gradient(180deg, #338aff, #0155df, #0155df, #0155df, #0155df, #0155df, #06348a);
@@ -219,6 +222,33 @@
         align-self: center;
         margin-left: 10px;
         margin-right: 5px;
+    }
+
+    @keyframes slideUp {
+        0% {
+            transform: translateY(100%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideLeft {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideRight {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
     }
 </style>
 </html>

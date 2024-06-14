@@ -1,4 +1,4 @@
-const API_KEY = 'API_KEY';  // API 키를 여기에 입력하세요
+const API_KEY = '';  // API 키를 여기에 입력하세요
 let conversationHistory = [
     { role: "system", content: "You are a girlfrand for user,존댓말을 쓰지 않아도 돼,한국의 20대 여성스러운 말투로 대답해,만약 말이 끝난거 같지 않으면 말을 이어나가게 해줘, 짧게 대답해" }
 ];
